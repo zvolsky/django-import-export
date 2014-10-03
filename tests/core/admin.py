@@ -5,10 +5,12 @@ from django.contrib import admin
 from import_export.admin import ImportExportMixin, ExportActionModelAdmin
 
 from .models import Book, Category, Author
+from .resources import BookResource
 
 
 class BookAdmin(ImportExportMixin, admin.ModelAdmin):
     list_filter = ['categories', 'author']
+    resource_class = BookResource
 
 
 class CategoryAdmin(ExportActionModelAdmin):
